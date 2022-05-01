@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+<!doctype html>
+<html  lang="ar" dir="rtl">
+
+<head >
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-r from-indigo-600  to-blue-500">
+
+</div>
+</div>
+
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div class="bg-gradient-to-r from-indigo-600  to-blue-500 ...">
+  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+    <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+      <span style="font-family:cairo; font-size:24px" class="block">اهلا بك في صفحة اضافة الموظفين الرائعين في تقنونة</span>
+      <span style="font-family:cairo; font-size:24px" style="text-font-" class="block text-gray-50 m-0" >من هنا يمكنك اضافة الموظفين</span>
+    </h2>
+<div class="mt-5 md:mt-0 md:col-span-2">
+  <form method="POST">
+    {% csrf_token %} 
+
+    
+
+
+   <div class="shadow overflow-hidden sm:rounded-md">
+      <div class="px-4 py-7 bg-white sm:p-6">
+        <div class="grid grid-cols-6 gap-6">
+          <div class="col-span-6 sm:col-span-3">
+            <label for="first-name" class="block text-sm font-medium text-gray-700">الاسم</label>
+            {{form.name}}
+           
+          </div>
+           
+          <div class="col-span-6 sm:col-span-3">
+            <label for="country" class="block text-sm font-medium text-gray-700">الفريق</label>
+           
+            {{form.teams}}
+          
+            
+            </select> 
+          </div>
+         
+        </div>
+      </div>
+      <div style="font-family:cairo" class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+        <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">اضافة موظف</button>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
+</div>
+<center>
+<div>
+<img  src="{% static 'image/team.svg' %}" alt="صورة">
+</div>
+</center>
+
+<div class="grid grid-cols-6 lg:grid-cols-3  mx-80 gap-x-2 gap-y-3 pb-5  ">
+{% for empo in employee %}
+
+  <div class=" mt-4 bg-slate-50 text-gray-500 sm:pr-8 relative p-1 border w-96 border-gray-100 shadow-xl rounded-xl" >
+  
+    <svg
+      class="w-4 h-4 sm:w-10 sm:h-10"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+      ></path>
+    </svg>
+
+    <h5 class="mt-2 text-xl font-bold text-gray-900"> اسم الموظف:{{empo.name}}</h5>
+
+    <h1 style= "font-size:21px" class="hidden mt-2 text-sm sm:block">
+      الفريق:{{empo.teams}}
+      
+    </h1>
+    <div>
+    {% for team in teams %}
+      <p style= "font-size:18px > {{team.teamDescription}}  </p>
+      
+      {% endfor %}
+    </div>  
+   
+  </div>
+  
+  {% endfor %}
+</div>  
+</body>
+
+</html>
+
+{% endblock content %}

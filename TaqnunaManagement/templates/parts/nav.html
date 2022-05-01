@@ -1,0 +1,32 @@
+
+
+{% block content %}
+<nav class="flex items-center justify-between max-w-3xl p-4 mx-auto ">
+    <a
+      class="inline-flex items-center justify-center w-10 h-10 bg-gray-100 rounded-lg"
+      href="/"
+    >
+      👋
+    </a>
+  
+    <ul class="flex items-center space-x-2 text-sm font-medium text-gray-500">
+      <li class="hidden lg:block">
+        <a style="color:white; font-size:23px" class="px-3 py-2 rounded-lg" href="/"> الرئيسية </a>
+      </li>
+  
+      <li><a style="color:white; font-size:23px" class="px-3 py-2 rounded-lg" href="{% url 'input' %}"> الموظفين </a></li>
+  
+      <li>
+        <a
+          style="color:white; font-size:23px"
+          class="inline-flex items-center px-3 py-2 rounded-lg"
+          href="{% url 'teams' %}"
+         
+        >
+          الفرق
+   
+        </a>
+      </li>
+    </ul>
+  </nav>
+{% endblock content %}
